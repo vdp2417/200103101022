@@ -1,0 +1,64 @@
+<html>
+
+<head>
+    <title>Image Hover Effect</title>
+    <style type="text/css">
+        .Img {
+            position: relative;
+            width: 480px;
+        }
+
+        .Image {
+            height: 300px;
+            width: 200ox;
+            display: block;
+            transition: 5s;
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0px;
+            bottom: 0px;
+            right: 0px;
+            left: 0px;
+            height: 100%;
+            opacity: 0;
+            transition: 2s;
+            background-color: rgb(0,0,0,0.7);
+        }
+
+        .Img:hover .overlay {
+            opacity: 1;
+        }
+
+        .Img:hover .Image {
+            transform: rotate(360deg);
+        }
+
+        .text {
+            color: white;
+            font-size: 30px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            -webkit-transform: translate(-50%, -50%);
+            -moz-transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+            -o-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Image Hover Effect</h1>
+    <div class="Img">
+        <img src="image/v.jpg" alt="Demo Image" class="Image">
+        <div class="overlay">
+            <div class="text">Nature</div>
+        </div>
+    </div>
+</body>
+
+</html>
