@@ -1,0 +1,71 @@
+<html>
+
+<head>
+    <title>Button Click Event</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#Show").attr("disabled", true);
+            $("#Hide").click(function () {
+                if (confirm("Are you sure..?")) {
+                    $("#Div").hide(4000);
+                    $(this).attr("disabled", true);
+                    $("#Show").attr("disabled", false);
+                    $("#Toggel").text("Show");
+                }
+            });
+            $("#Hide").click(function () {
+                if (confirm("Are you sure..?")) {
+                    $("#div").show(4000);
+                    $(this).attr("disabled", true);
+                    $("#Hide").attr("disabled", false);
+                    $("#Toggel").text("Hide");
+                }
+            });
+            $("#Toggel").click(function () {
+                if (confirm("Are you sure..?")) {
+                    $("#Div").toggle(3000);
+                    ($(this).text() == "Hide")
+                        ? ($(this).text("Show"), $("#Hide").attr("disabled", true),$("#Show").attr("disabled", false))
+                        : ($(this).text("Show"), $("#Show").attr("disabled", false),$("#Show").attr("disabled", true))
+                    }
+                });
+        $("#Plus").click(function () {
+            var MDH = parseInt($("#Div").css("height"));
+            if (MDH <= 500) {
+                MDH += 10;
+                $("#Div").css("height", MDH);
+                $("#Div").css("widht", MDH);
+            }
+            else {
+                alert("More than 500px is not posible.");
+            }
+        });
+        $("#Minus").click(function () {
+            var MDH = parseInt($("#Div").css("height"));
+            if (MDH >= 20) {
+                MDH -= 10;
+                $("#Div").css("height", MDH);
+                $("#Div").css("widht", MDH);
+            }
+            else {
+                alert("less than 20px is not possible.");
+            }
+        });
+            });
+    </script>
+</head>
+
+<body>
+    <div id="Div" style="height:400px;width: 400px;background-color: rgb(29, 0, 56);"></div>
+    <hr>
+    <button id="Hide">Hide</button>&nbsp;&nbsp;&nbsp;<button id="Show">Show</button>
+    <hr>
+    <button id="Toggel">Hide</button>
+    <hr>
+    <button id="Plus" style="font-size: larger;"><b>+</b></button>&nbsp;&nbsp;<button id="Minus"
+        style="font-size:larger ;"><b>-</b></button>
+    <hr>
+</body>
+
+</html>

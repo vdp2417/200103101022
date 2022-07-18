@@ -1,0 +1,40 @@
+<html>
+
+<head>
+    <title>Animation/JQuery</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#V1").click(function () {
+                $("div").animate({ left: '300px' });
+            });
+            $("#V2").click(function () {
+                $("div").animate({ left: '300px', opacity: '0.5', height: '150px', width: '200' });
+            });
+            $("#V3").click(function () {
+                var div = $("div");
+                div.animate({ height: '500px', opacity: '0.3' }, "slow");
+                div.animate({ width: '500px', opacity: '0.8' }, "slow");
+                div.animate({ height: '200px', opacity: '0.3' }, "slow");
+                div.animate({ width: '200px', opacity: '0.8' }, "slow");
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <button id="V1">Animation-1</button>
+    <button id="V2">Animation-2</button>
+    <button id="V3">Animation-3</button>
+    <div style="background: rgb(36, 144, 173);height: 150px;width: 200px;position:relative;"></div>
+    <hr>
+    <div style="background:black;height: 200px;width: 200px;border-radius: 50%;position:relative;"></div>
+    <hr>
+    <div
+        style="color: rgb(169, 66, 83);background-color: aliceblue;border-bottom: 200px solid;border-right: 100px solid transparent;border-left: 100px solid transparent;width: 0px;position: relative;">
+    </div>
+    <hr>
+    <div style="background:rgb(255, 255, 0);height:200px;width: 300px;position: relative;"></div>
+</body>
+
+</html>

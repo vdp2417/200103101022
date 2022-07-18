@@ -1,0 +1,39 @@
+<html>
+    <head>
+        <title>Fade</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js" type="text/javascript"></script>
+        <script type="text/javascript">
+            $(function(){
+                $("#F1").click(function(){
+                    $("#d1").fadeIn();
+                    $("#d2").fadeIn("slow");
+                    $("#d3").fadeIn(3000);
+                });
+                $("#F2").click(function(){
+                    $("#d1").fadeOut();
+                    $("#d2").fadeOut("slow");
+                    $("#d3").fadeOut(3000);
+                });
+                $("#F3").click(function(){
+                    $("#d1").fadeToggle();
+                    $("#d2").fadeToggle("slow");
+                    $("#d3").fadeToggle(3000);
+                });
+                $("#F4").click(function(){
+                    $("#d1").fadeTo("slow",0.15);
+                    $("#d2").fadeTo("slow",0.5);
+                    $("#d3").fadeTo("slow",0.9);
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <button id="F1">Fade in box</button>
+        <button id="F2">Fade out box</button>
+        <button id="F3">Fade in/out box</button>
+        <button id="F4">Fade box</button>
+        <div id="d1" style="width:80px;height:80px;display:none;border-radius:50%;background-color:rgb(228, 92, 92);"></div><br>
+        <div id="d2" style="width:80px;height:80px;display:none;border-radius:50%;background-color:rgb(78, 184, 78);"></div><br>
+        <div id="d3" style="width:80px;height:80px;display:none;border-radius:50%;background-color:rgb(112, 112, 230);"></div><br>
+    </body>
+</html>

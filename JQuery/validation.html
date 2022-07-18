@@ -1,0 +1,276 @@
+<html>
+
+<head>
+    <title>Validation</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        //Regular Expression
+        var $FNameLNameRegEx = /^([a-zA-Z]{2,20})$/;
+        var $ConNoRegEx = /^([0-9]{10})$/;
+        var $EmailIdRegEx = /^\b[A-Z0-9._%-]+@[A-Z0-9.-]+\.[A-Z]{2,8}\b$/i;
+        var $PasswordRegEx = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[^\w\s]).{8,12}$/;
+
+        $(document).ready(function () {
+            $("#txtFname").blur(function () {
+                $("#TxtFNameValidation").empty();
+                if ($(this).val() == "" || $(this).val() == null) {
+                    $("#TxtFNameValidation").html("(*) First Name required...!!");
+                }
+                else {
+                    if (!$(this).val().match($FNameLNameRegEx)) {
+                        $("#TxtFNameValidation").html("(*) Invalid Name..!!");
+                    }
+                }
+            });
+            $("#txtFname").keypress(function (e) {
+                $("#TxtFNameValidation").empty();
+                var Flag = ((e.which >= 65 && e.which <= 90) || (e.which >= 97 && e.which <= 121));
+                if (Flag == false) {
+                    $("#TxtFNameValidation").html("(*) Invalid Input..!!");
+                }
+                return Flag;
+            });
+            $("#txtLname").blur(function () {
+                $("#TxtLNameValidation").empty();
+                if ($(this).val() == "" || $(this).val() == null) {
+                    $("#TxtLNameValidation").html("(*) Last Name required...!!");
+                }
+                else {
+                    if (!$(this).val().match($FNameLNameRegEx)) {
+                        $("#TxtLNameValidation").html("(*) Invalid Name..!!");
+                    }
+                }
+            });
+            $("#txtLname").keypress(function (e) {
+                $("#TxtLNameValidation").empty();
+                var Flag = ((e.which >= 65 && e.which <= 90) || (e.which >= 97 && e.which <= 121));
+                if (Flag == false) {
+                    $("#TxtLNameValidation").html("(*) Invalid Input..!!");
+                }
+                return Flag;
+            });
+            $("#telNumber").blur(function () {
+                $("#TxtNumValidation").empty();
+                if ($(this).val() == "" || $(this).val() == null) {
+                    $("#TxtNumValidation").html("(*) Contect Number required...!!");
+                }
+                else {
+                    if (!$(this).val().match($ConNoRegEx)) {
+                        $("#TxtNumValidation").html("(*) Invalid Name..!!");
+                    }
+                }
+            });
+            $("#telNumber").keypress(function (e) {
+                $("#TxtNumValidation").empty();
+                var Flag = ((e.which >= 48 && e.which <= 57));
+                if (Flag == false) {
+                    $("#TxtNumValidation").html("(*) Invalid Input..!!");
+                }
+                return Flag;
+            });
+            $("#txtMail").blur(function () {
+                $("#TxtMailValidation").empty();
+                if ($(this).val() == "" || $(this).val() == null) {
+                    $("#TxtMailValidation").html("(*) Email id required..!!");
+                }
+                else {
+                    if (!$(this).val().match($EmailIdRegEx)) {
+                        $("#TxtMailValidation").html("(*) Invalid email id..!!");
+                    }
+                }
+            });
+            $("#txtAdd").blur(function () {
+                $("#TxtAddValidation").empty();
+                if ($(this).val() == "" || $(this).val() == null) {
+                    $("#TxtAddValidation").html("(*) Address required..!!");
+                }
+                else {
+                    if ($("#txtAdd").val().length > 300) {
+                        $("#TxtAddValidation").html("(*) Invalid Address ..!!");
+                    }
+                }
+            });
+            $("#txtPwd").blur(function () {
+                $("#TxtPwdValidation").empty();
+                if ($(this).val() == "" || $(this).val() == null) {
+                    $("#TxtPwdValidation").html("(*) Password required..!!");
+                }
+                else {
+                    if (!$(this).val().match($PasswordRegEx)) {
+                        $("#TxtPwdValidation").html("(*) Invalid password..!!");
+                    }
+                }
+            });
+            var txtFnameFlag = false, txtLnameFlag = false, txtMailFalg = false, txtPwdFlag = false, txtAddFlag = false, telNumberFlag = btnAgeFlag = false, txtSelectFlag = false;
+            $("#btnSubmit").click(function () {
+                $("#TxtFNameValidation").empty();
+                if ($("#txtFname").val() == "" || $("#txtFname").val() == null) {
+                    $("#TxtFNameValidation").html("(*)First Name required..!!");
+                    txtFnameFlag = false;
+                }
+                else {
+                    if (!$("#txtFname").val().match($FullNameRegEx)) {
+                        $("#TxtFNameValidation").html("(*) Invalid name..!!");
+                        txtFnameFlag = false;
+                    }
+                    else {
+                        txtFnameFlag = true;
+                    }
+                }
+                $("#TxtLNameValidation").empty();
+                if ($("#txtLname").val() == "" || $("#txtLname").val() == null) {
+                    $("#TxtLNameValidation").html("(*)Last Name required..!!");
+                    txtLnameFlag = false;
+                }
+                else {
+                    if (!$("#txtLname").val().match($FullNameRegEx)) {
+                        $("#TxtLNameValidation").html("(*) Invalid name..!!");
+                        txtLnameFlag = false;
+                    }
+                    else {
+                        txtLnameFlag = true;
+                    }
+                }
+                $("#TxtNumValidation").empty();
+                if ($("#telNumber").val() == "" || $("#telNumber").val() == null) {
+                    $("#TxtNumValidation").html("(*) Contact no. required..!!");
+                    telNumberFlag = false;
+                }
+                else {
+                    if (!$("#telNumber").val().match($ConNoRegEx)) {
+                        $("#TxtNumValidation").html("(*) Invalid contact no..!!");
+                        telNumberFlag = false;
+                    }
+                    else {
+                        telNumberFlag = true;
+                    }
+                }
+                $("#TxMailValidation").empty();
+                if ($("#txtMail").val() == "" || $("#txtMail").val() == null) {
+                    $("#TxtMailValidation").html("(*) Email id required..!!");
+                    txtMailFlag = false;
+                }
+                else {
+                    if (!$("#txtMail").val().match($EmailIdRegEx)) {
+                        $("#TxtMailValidation").html("(*) Invalid email id..!!");
+                        txtMailFlag = false;
+                    }
+                    else {
+                        txtMailFlag = true;
+                    }
+                }
+                $("#TxtAddValidation").empty();
+                if ($("#txtAdd").val() == "" || $("#txtAdd").val() == null) {
+                    $("#TxtAddValidation").html("(*) Contact message required..!!");
+                    txtAddFlag = false;
+                }
+                else {
+                    if ($("#txtAdd").val().length > 300) {
+                        $("#TxtAddValidation").html("(*) Invalid contact message..!!");
+                        txtAddFlag = false;
+                    }
+                    else {
+                        txtAddFlag = true;
+                    }
+                }
+                $("#TxtPwdValidation").empty();
+                if ($("#txtPwd").val() == "" || $("#txtPwd").val() == null) {
+                    $("#TxtPwdValidation").html("(*) Contact no. required..!!");
+                    txtPwdFlag = false;
+                }
+                else {
+                    if (!$("#txtPwd").val().match($PasswordRegEx)) {
+                        $("#TxtPwdValidation").html("(*) Invalid contact no..!!");
+                        txtPwdFlag = false;
+                    }
+                    else {
+                        txtPwdFlag = true;
+                    }
+                }
+                $("#TxtAgeValidation").empty();
+                if ($("#btnAge").val() == "" || $("#btnAge").val() == null) {
+                    $("#TxtAgeValidation").html("(*) Age required..!!");
+                    btnAgeFlag=false;
+                }
+                else {
+                    btnAgeFlag=true;
+                }
+                $("#TxtSelectValidation").empty();
+                if ($("#txtSelect").val() == "" || $("#txtSelect").val() == null) {
+                    $("#TxtSelectValidation").html("(*) chose the option..!!");
+                    txtSelectFlag=false;
+                }
+                else {
+                    txtSelectFlag=true;
+                }
+                if (txtFnameFlag == true && txtLnameFlag == true && telNumberFlag == true && txtMailFlag == true && txtAddFlag == true && txtPwdFlag == true && btnAgeFlag == true && txtSelectFlag == true) {
+                    $("input,select,").val("");
+                    alert("Form submitted successfully..!!");
+                }
+                else {
+                    alert("Invalid Input..!!");
+                }
+            });
+        });
+    </script>
+    <style type="text/css">
+        small {
+            color: red;
+        }
+    </style>
+</head>
+
+<body style="background-color: rgb(192, 249, 255);" height="100%" width="100%">
+    <h1 style="font-family:Comic Sans MS;color: rgb(0, 47, 49);text-align: center;font-size:50px;font-weight: bold;">
+        Registration Form</h1>
+    
+        <fieldset>
+            <legend><strong>Enter your details</strong></legend>
+            First Name:<br>
+            <input type="text" id="txtFname" maxlength="10" autofocus placeholder="Enter Your First Name..."><br>
+            <small id="TxtFNameValidation"></small>
+            <hr>
+            Last Name:<br>
+            <input type="text" id="txtLname" maxlength="10" autofocus placeholder="Enter Your Last Name..."><br>
+            <small id="TxtLNameValidation"></small>
+            <hr>
+            Mobile no:<br>
+            <input type="tel" name="mobile no" id="telNumber" maxlength="10" placeholder="Enter your Contact number..."><br>
+            <small id="TxtNumValidation"></small>
+            <hr>
+            Mail Id:<br>
+            <input type="mail" name="mail Id" id="txtMail" maxlength="50" placeholder="Enter your mail id..."><br>
+            <small id="TxtMailValidation"></small>
+            <hr>
+            Age:<br>
+            <input type="radio" name="age" id="btntAge">under 19
+            <input type="radio" name="age" id="btnAge">under 21
+            <small id="TxtAgeValidation"></small>
+            <hr>
+            Address:<br>
+            <input type="area" name="address" id="txtAdd" maxlength="500"><br>
+            <small id="TxtAddValidation"></small>
+            <hr>
+            Event:<br>
+            <select name="sports" id="txtSelect">
+                <option value="table-tennis">Table-Tennis</option>
+                <option value="badminton">Badminton</option>
+                <option value="karate">Karate</option>
+                <option value="boxing">Boxing</option>
+            <small id="TxtSelectValidation"></small>
+            </select>
+            <hr>
+            Password:<br>
+            <input type="password" name="password" id="txtPwd"><br>
+            <small id="TxtPwdValidation"></small>
+            <hr>
+            Agree:<br>
+            <input type="reset" value="reset"><br>
+            <hr>
+            <input type="button" value="submit" id="btnSubmit"><br>
+    
+    </fieldset>
+   
+</body>
+
+</html>

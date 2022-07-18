@@ -1,0 +1,33 @@
+<html>
+    <head>
+        <title>Slide Down</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js" type="text/javascript"></script>
+        <script>
+            $(document).ready(function(){
+                $("#flip").click(function(){
+                    $("#panel").slideDown("slow");
+                });
+            });
+        </script>
+        <style type="text/css">
+            #flip,#panel {
+                border-radius: 20%;
+                text-align: center;
+                background-color: aquamarine;
+                border: solid 3px black;
+                padding: 10px;
+                font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            }
+            #panel {
+                font-size: large;
+                padding: 30px;
+                display: none;
+                font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            }
+        </style>
+    </head>
+    <body style="background-color:rgb(153, 144, 253) ;">
+        <div id="flip">Click to slide down panel</div>
+        <div id="panel">Hello Student!</div>
+    </body>
+</html>
