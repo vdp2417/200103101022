@@ -1,0 +1,95 @@
+<html>
+
+<head>
+  <title>Flax Box Item Order</title>
+  <style type="text/css">
+    body {
+      margin: 0%;
+      padding: 0%;
+      font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    }
+
+    .main-container {
+      border: 5px solid palevioletred;
+      /*display: flex; /* block level flex container */
+      display: inline-flex;
+      /* inline flex container */
+      flex-direction: row;
+      /* left to right */
+      /*flex-direction: row-reverse;*/
+      /* right to left */
+      /*flex-direction: column;/* top to bottom */
+      /* flex-direction: column-reverse; /* bottom to top */
+    }
+
+    .item {
+      color: black;
+      font-size: 20px;
+      padding: 0.75rem;
+      text-align: center;
+    }
+
+    .item-1 {
+      order: 1;
+      background-color: #DDA0DD;
+    }
+
+    .item-2 {
+      order: 2;
+      background-color: #BF94E4;
+
+    }
+
+    .item-3 {
+      order: 3;
+      background-color: #734F96;
+    }
+
+    .item-4 {
+      background-color: #FBAED2;
+    }
+
+    .item-5 {
+      background-color: #EE82EE;
+      /*order: 2;  higher order number will aligned to extreme right or at the end */
+    }
+
+    .item-6 {
+      order: -1;
+      background-color: #ADE4CA;
+    }
+
+    .item-7 {
+      background-color: #A6D5AE;
+    }
+
+    .item-8 {
+      background-color: #8FBC8E;
+    }
+
+    .item-9 {
+      background-color: #64A466;
+    }
+
+    .item-10 {
+      background-color: #2E8B56;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="main-container">
+    <div class="item item-1">Apple</div>
+    <div class="item item-2">Bunana</div>
+    <div class="item item-3">Mango</div>
+    <div class="item item-4">Cherry</div>
+    <div class="item item-5">Pear</div>
+    <div class="item item-6">Orange</div>
+    <div class="item item-7">Pinapple</div>
+    <div class="item item-8">Grapes</div>
+    <div class="item item-9">Guvav</div>
+    <div class="item item-10">Water-Melon</div>
+  </div>
+</body>
+
+</html>
